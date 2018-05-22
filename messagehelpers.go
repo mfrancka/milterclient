@@ -9,7 +9,7 @@ import (
 // Negotiation sends SMFIC_OPTNEG
 // should be the first Packet after tcp connect
 func (session *MilterSession) Negotiation() *Message {
-	return &Message{Code: byte(SmficOptNeg), Data: []byte{}}
+	return &Message{Code: byte(SmficOptNeg), Data: []byte{0,0,0,6,0,0,1,0xff,0,0x1f,0xff,0xff}}
 }
 
 // Macro sends SMFIC_MACRO

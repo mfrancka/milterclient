@@ -43,7 +43,7 @@ func (c *MilterSession) WriteMessages(messages []*Message, timeoutSecs int, done
 	var code byte
 	for _, m := range messages {
 		// fmt.Printf("Writing: %v\n", m)
-		if m.Code != SmficOptNeg {
+		if m.Code != SmficOptNeg && m.Code != SmficQuit {
 			err = c.WritePacket(c.Macro(m.Code))
 			if err != nil {
 				return 0, err
